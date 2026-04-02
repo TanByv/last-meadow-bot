@@ -7,6 +7,8 @@ Automates the Last Meadow Online game loop:
 - **Live dashboard** showing cooldowns, stats, XP, and activity log
 - **Stops automatically** when target level is reached (or runs forever)
 
+![CLI_Screenshot](https://files.catbox.moe/a5x5cp.png)
+
 ---
 
 ## Requirements
