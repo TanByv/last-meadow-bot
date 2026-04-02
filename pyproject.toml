@@ -1,0 +1,11 @@
+[project]
+name = "last-meadow-bot"
+version = "0.1.0"
+description = "Automated grinding bot for Last Meadow Online"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "curl-cffi>=0.14.0",
+    "pydantic>=2.12.5",
+    "rich>=14.3.3",
+]
