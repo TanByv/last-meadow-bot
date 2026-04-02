@@ -25,11 +25,12 @@ pip install -r requirements.txt
 python main.py
 ```
 
-You will be prompted for:
-
 > [!IMPORTANT]
 > **DISCLAIMER**: Use this bot at your own risk. The developers are not responsible for any bans or account actions. This tool is for educational purposes only.
+> 
 > **Note**: The maximum possible level is **100**.
+
+You will be prompted for:
 
 | Input | Description |
 |---|---|
