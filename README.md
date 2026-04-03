@@ -7,7 +7,7 @@ Automates the Last Meadow Online game loop:
 - **Live dashboard** showing cooldowns, stats, XP, and activity log
 - **Stops automatically** when target level is reached (or runs forever)
 
-![CLI_Screenshot](https://files.catbox.moe/a5x5cp.png)
+![CLI_Screenshot](https://files.catbox.moe/cvmcww.png)
 
 ---
 
@@ -16,7 +16,7 @@ Automates the Last Meadow Online game loop:
 Python 3.11+
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 ---
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-python main.py
+uv run main.py
 ```
 
 > [!IMPORTANT]
