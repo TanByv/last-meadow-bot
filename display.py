@@ -60,20 +60,20 @@ def make_dashboard(bot: "Bot") -> Group:
     target_str = f"Lv {bot.target_level}" if bot.target_level else "∞"
     status_bar = Text.assemble(
         ("⚔  Last Meadow Online Bot", "bold green"),
-        ("   │   ", "dim"),
-        ("Uptime: ", "dim"),
+        ("   │   ", "white"),
+        ("Uptime: ", "white"),
         (_elapsed(bot.session_start, now), "bold cyan"),
-        ("   │   ", "dim"),
-        ("Target: ", "dim"),
+        ("   │   ", "white"),
+        ("Target: ", "white"),
         (target_str, "bold yellow"),
-        ("   │   ", "dim"),
+        ("   │   ", "white"),
         (bot.current_action, "bold white"),
     )
     header = Panel(status_bar, box=box.HEAVY, border_style="green", padding=(0, 1))
 
     # ── Character panel ───────────────────────────────────────────────────────
     char_tbl = Table(box=None, show_header=False, padding=(0, 2))
-    char_tbl.add_column(style="dim", min_width=14)
+    char_tbl.add_column(style="white", min_width=14)
     char_tbl.add_column(style="bold white", min_width=26)
 
     if ud:
@@ -96,17 +96,17 @@ def make_dashboard(bot: "Bot") -> Group:
 
     # ── Cooldowns panel ───────────────────────────────────────────────────────
     cd_tbl = Table(box=None, show_header=False, padding=(0, 2))
-    cd_tbl.add_column(style="dim", min_width=18)
+    cd_tbl.add_column(style="white", min_width=18)
     cd_tbl.add_column(min_width=12)
     cd_tbl.add_column(min_width=20)
 
     cd_tbl.add_row(
-        "Crafting  [dim](2 min)[/dim]",
+        "Crafting  (2 min)",
         _fmt_cd(bot.crafting_cooldown_until, now),
         _fmt_ready_at(bot.crafting_cooldown_until, now),
     )
     cd_tbl.add_row(
-        "Combat  [dim](3 min)[/dim]",
+        "Combat  (3 min)",
         _fmt_cd(bot.combat_cooldown_until, now),
         _fmt_ready_at(bot.combat_cooldown_until, now),
     )
@@ -121,7 +121,7 @@ def make_dashboard(bot: "Bot") -> Group:
 
     # ── Session counters panel ────────────────────────────────────────────────
     sess_tbl = Table(box=None, show_header=False, padding=(0, 2))
-    sess_tbl.add_column(style="dim", min_width=10)
+    sess_tbl.add_column(style="white", min_width=10)
     sess_tbl.add_column(style="bold", min_width=8)
 
     total = bot.session_gathering + bot.session_crafting + bot.session_combat
@@ -140,7 +140,7 @@ def make_dashboard(bot: "Bot") -> Group:
 
     # ── All-time stats panel ──────────────────────────────────────────────────
     stats_tbl = Table(box=None, show_header=False, padding=(0, 2))
-    stats_tbl.add_column(style="dim", min_width=10)
+    stats_tbl.add_column(style="white", min_width=10)
     stats_tbl.add_column(style="bold white", min_width=8)
 
     if ud:
@@ -150,11 +150,11 @@ def make_dashboard(bot: "Bot") -> Group:
         stats_tbl.add_row("[cyan]Crafting[/cyan]", str(ac.crafting))
         stats_tbl.add_row("[magenta]Combat[/magenta]", str(ac.combat))
         stats_tbl.add_row("", "")
-        stats_tbl.add_row("[dim]Metal[/dim]", str(rc.metal))
-        stats_tbl.add_row("[dim]Wood[/dim]", str(rc.wood))
-        stats_tbl.add_row("[dim]Leather[/dim]", str(rc.leather))
-        stats_tbl.add_row("[dim]Weapon[/dim]", str(rc.weapon))
-        stats_tbl.add_row("[dim]Healers[/dim]", str(rc.healers))
+        stats_tbl.add_row("Metal", str(rc.metal))
+        stats_tbl.add_row("Wood", str(rc.wood))
+        stats_tbl.add_row("Leather", str(rc.leather))
+        stats_tbl.add_row("Weapon", str(rc.weapon))
+        stats_tbl.add_row("Healers", str(rc.healers))
     else:
         stats_tbl.add_row("Status", "[yellow]Loading…[/yellow]")
 

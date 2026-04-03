@@ -16,6 +16,7 @@ from models import ErrorResponse, GameResponse, UserData
 
 CRAFTING_COOLDOWN = timedelta(minutes=2)
 COMBAT_COOLDOWN = timedelta(minutes=3)
+COOLDOWN_BUFFER = timedelta(seconds=1)
 
 # Seconds to wait between start → complete for timed events
 EVENT_COMPLETE_DELAY_MIN = 3.0
@@ -85,9 +86,9 @@ class Bot:
 
         ud = resp.user_data
         if ud.crafting_ended_at:
-            self.crafting_cooldown_until = ud.crafting_ended_at + CRAFTING_COOLDOWN
+            self.crafting_cooldown_until = ud.crafting_ended_at + CRAFTING_COOLDOWN + COOLDOWN_BUFFER
         if ud.combat_ended_at:
-            self.combat_cooldown_until = ud.combat_ended_at + COMBAT_COOLDOWN
+            self.combat_cooldown_until = ud.combat_ended_at + COMBAT_COOLDOWN + COOLDOWN_BUFFER
 
     def _changes_str(self, resp: GameResponse) -> str:
         nz = resp.changes.nonzero()
@@ -128,7 +129,7 @@ class Bot:
         if isinstance(resp, ErrorResponse):
             self._log("[red]✗ Crafting still on cooldown (server-side)[/red]")
             # Be conservative — push our local estimate forward
-            self.crafting_cooldown_until = datetime.now(timezone.utc) + CRAFTING_COOLDOWN
+            self.crafting_cooldown_until = datetime.now(timezone.utc) + CRAFTING_COOLDOWN + COOLDOWN_BUFFER
             return
         if not isinstance(resp, GameResponse):
             self._log("[red]✗ Crafting start failed[/red]")
@@ -156,7 +157,7 @@ class Bot:
         resp = await client.combat_start()
         if isinstance(resp, ErrorResponse):
             self._log("[red]✗ Combat still on cooldown (server-side)[/red]")
-            self.combat_cooldown_until = datetime.now(timezone.utc) + COMBAT_COOLDOWN
+            self.combat_cooldown_until = datetime.now(timezone.utc) + COMBAT_COOLDOWN + COOLDOWN_BUFFER
             return
         if not isinstance(resp, GameResponse):
             self._log("[red]✗ Combat start failed[/red]")
