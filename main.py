@@ -42,7 +42,7 @@ def prompt_inputs() -> tuple[str, str, str, int | None]:
         Panel.fit(
             Text.assemble(
                 ("⚔  Last Meadow Online\n", "bold green"),
-                ("   Automated Grinding Bot  v1.0", "dim"),
+                ("   Automated Grinding Bot  v1.1", "dim"),
             ),
             border_style="green",
             padding=(0, 4),
