@@ -16,7 +16,7 @@ from models import ErrorResponse, GameResponse, UserData
 
 CRAFTING_COOLDOWN = timedelta(minutes=2)
 COMBAT_COOLDOWN = timedelta(minutes=3)
-COOLDOWN_BUFFER = timedelta(seconds=1)
+COOLDOWN_BUFFER = timedelta(seconds=2)
 
 # Seconds to wait between start → complete for timed events
 EVENT_COMPLETE_DELAY_MIN = 3.0
