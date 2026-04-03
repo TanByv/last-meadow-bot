@@ -14,6 +14,9 @@ Automates the Last Meadow Online game loop:
 ## Requirements
 
 Python 3.11+
+- curl_cffi
+- pydantic
+- rich
 
 ```bash
 uv sync
@@ -51,7 +54,7 @@ last_meadow_bot/
 ├── client.py        # curl_cffi async HTTP client
 ├── display.py       # Rich live dashboard renderer
 ├── models.py        # Pydantic response models
-└── requirements.txt
+└── pyproject.toml   # Requirements and project info
 ```
 
 ---
