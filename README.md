@@ -2,10 +2,10 @@
 
 Automates the Last Meadow Online game loop:
 
-- **Prioritises** Crafting (2 min cooldown) and Combat (3 min cooldown) events
-- **Fills downtime** with continuous Gathering cycles (~1/second)
-- **Live dashboard** showing cooldowns, stats, XP, and activity log
-- **Stops automatically** when target level is reached (or runs forever)
+- Prioritises Crafting (2 min cooldown) and Combat (3 min cooldown) events
+- Fills downtime with continuous Gathering cycles (~1/second)
+- Live dashboard showing cooldowns, stats, XP, and activity log
+- Stops automatically when target level is reached (or runs forever)
 
 ![CLI_Screenshot](https://files.catbox.moe/cvmcww.png)
 
@@ -33,7 +33,7 @@ uv run main.py
 > [!IMPORTANT]
 > **DISCLAIMER**: Use this bot at your own risk. The developers are not responsible for any bans or account actions. This tool is for educational purposes only.
 > 
-> **Note**: The maximum possible level is **100**.
+> **Note**: The maximum possible level is 100.
 
 You will be prompted for:
 
