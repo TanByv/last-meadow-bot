@@ -56,15 +56,3 @@ last_meadow_bot/
 ├── models.py        # Pydantic response models
 └── pyproject.toml   # Requirements and project info
 ```
-
----
-
-## Timing at a glance
-
-| Activity | Start → Complete delay | Cooldown |
-|---|---|---|
-| Gathering | 0.4 – 0.75 s | none |
-| Crafting | 3.0 – 4.2 s | 2 minutes |
-| Combat | 3.0 – 4.2 s | 3 minutes |
-
-A small extra jitter (0.1 – 0.35 s) is added between every full cycle.
